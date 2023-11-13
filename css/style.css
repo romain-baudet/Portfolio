@@ -79,7 +79,7 @@ nav ul{
 }
 
 nav li a{
-    color: var(--third-color);
+    color: var(--secondary-color);
     margin: auto 1vw;
     font-size: 1.4rem;
     text-decoration: none;
@@ -333,6 +333,8 @@ i{
 
 .technos-container{
     display: flex;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
 .technos{
@@ -375,7 +377,7 @@ i{
     right: 10px;
     font-size: 24px;
     cursor: pointer;
-    color: var(--third-color);
+    color: white;
 }
 
 .get-more{
@@ -443,22 +445,6 @@ footer{
     text-align: center;
     margin-top: 8rem;
     color: var(--third-color) ;
-}
-
-@keyframes apparition {
-    100%{
-        opacity: 1;
-        transform: none;
-    }
-}
-
-@keyframes bounce {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(-20px);
-    }
 }
 
 /** RESPONSIVE **/
@@ -533,6 +519,8 @@ nav{
     justify-content: space-between;
 }
 
+
+
 #nav-left{
     z-index: 30;
     top: 0;
@@ -549,13 +537,17 @@ nav{
     background-color: rgba(4,8,47,1);
     z-index: 20;
     margin-left: -100%;
+    
 }
 
-#nav-right ul,
-#nav-right #icon {
+#nav-right ul
+/* ,#nav-right #icon  */
+{
     display: flex;
     flex-direction: column;
 }
+
+
 
 nav #nav-right ul li{
     margin: 25px;
@@ -568,15 +560,42 @@ nav #nav-right ul li{
     justify-content: center;
     align-items: center;
     margin-right: 1vw;
+    cursor: pointer;
+    
+}
+
+.body-scroll-lock {
+    overflow: hidden;
 }
 
 h2{
     font-size: 2.2rem;
 }
 
-#nav-right.mobile-menu{
+/* #nav-right.mobile-menu{
     margin-left: 0;
+    right: 100%;
+    animation: slide-out 1s  ease-in-out;
 }
+
+#nav-right.mobile-menu-closed{
+    animation: slide 1s  ease-in-out;
+
+} */
+
+#nav-right.mobile-menu {
+    margin-left: 0;
+    right: 0;
+    animation: slide 1s ease-in-out;
+}
+
+#nav-right.mobile-menu-closed {
+    margin-left: 0;
+    right: 100%;
+    animation: slide-out 1s ease-in-out;
+}
+
+
 
 #landing{
     display: flex;
@@ -586,7 +605,7 @@ h2{
 
 #tete{
     height: 30vh;
-    top: 10%;
+    top: 13%;
     margin: 0 auto;
     position: relative;
     right: auto;
@@ -595,7 +614,7 @@ h2{
 #landing .container {
     width: 100%;
     position: absolute;
-    top: 50%;
+    top: 60%;
     padding: 0;
     text-align: center;
 
@@ -648,6 +667,11 @@ h2{
     
 }
 
+.modal-content{
+    width: 80vw;
+
+}
+
 .contact-container{
     width: 70%;
 }
@@ -679,8 +703,12 @@ h2{
         margin-top: 1rem;
     }
 
+    nav li a{
+        font-size: 1.1rem;
+    }
+
     #hey{
-        font-size: 4vw;
+        font-size: 3.5vw;
     }
     
     #name{
@@ -698,8 +726,7 @@ h2{
         font-size: 4vw;
     }
 
-    #landing .container {
-     
+    #landing .container {     
         top: 20%;     
     }
 
@@ -752,4 +779,39 @@ h2{
 .white{
     font-size: 1rem;
 }
+}
+
+
+@keyframes apparition {
+    100%{
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-out {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100%);
+    }
 }
